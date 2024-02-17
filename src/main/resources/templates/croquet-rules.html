@@ -6,9 +6,13 @@
 
 <div id="content">
     <h2>Rules of Golf Croquet</h2>
-
+<!--In croquet-rules.html, complete the content <div> by adding an unordered list that displays the String data from the model.-->
     <!-- Create an unordered list of String objects here -->
+<ul>
 
+    <li th:each="item : ${croquetRules}" th:text="${item}"></li>
+
+</ul>
 
 </div>
 </body>

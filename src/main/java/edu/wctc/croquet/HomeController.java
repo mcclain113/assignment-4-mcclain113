@@ -34,21 +34,26 @@ public class HomeController {
         /**
          * Uncomment this section when you're ready to test your GlossaryTerm class.
          */
-//        try {
-//            terms = mapper.readValue(
-//                    croquetGlossary.getFile(),
-//                    GlossaryTerm[].class);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            terms = new GlossaryTerm[0];
-//        }
+        try {
+            terms = mapper.readValue(
+                    croquetGlossary.getFile(),
+                    GlossaryTerm[].class);
+        } catch (IOException e) {
+            e.printStackTrace();
+            terms = new GlossaryTerm[0];
+        }
     }
+
+//    When you are ready to test your GlossaryTerm class, uncomment the second half of the initData() method in HomeController.
+//
+//    Follow the instructions in the two handler methods — showGlossaryPage() and showRulesPage() — to add the appropriate data array to each model.
 
     @RequestMapping("/rules")
     public String showRulesPage(Model model) {
         /**
          * Add the array of Strings to the model
          */
+        model.addAttribute("croquetRules", rules);
 
         return "croquet-rules";
     }
@@ -58,7 +63,7 @@ public class HomeController {
         /**
          * Add the array of GlossaryTerm objects to the model
          */
-
+        model.addAttribute("croquetGlossary", terms);
         return "croquet-glossary";
     }
 
